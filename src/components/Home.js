@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function Header() {
   const headerStyle = {
-    backgroundColor: "#2b2625",
+    backgroundColor: "#808080",
     padding: "20px",
     textAlign: "left",
   };
@@ -16,7 +16,7 @@ function Header() {
 
 function Footer() {
   const footerStyle = {
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#808080",
     padding: "10px",
     textAlign: "center",
   };
@@ -51,8 +51,10 @@ function Home() {
   };
 
   const productStyle = {
+    backgroundColor: "#808080",
     width: "200px",
     margin: "10px",
+    border: "6px solid black",
   };
 
   const productTitleStyle = {
@@ -71,7 +73,7 @@ function Home() {
         {products.map((item) => (
           <div key={item.id} style={productStyle}>
             <p style={productTitleStyle}>Товар: {item.title}</p>
-            <p>Цена: {item.price}</p>
+            <p>Цена: {item.price}$</p>
             <img
               src={item.thumbnail}
               alt={item.title}
