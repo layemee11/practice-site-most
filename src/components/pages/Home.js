@@ -1,33 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-function Header() {
-  const headerStyle = {
-    backgroundColor: "#808080",
-    padding: "20px",
-    textAlign: "left",
-  };
-
-  return (
-    <header style={headerStyle}>
-      <h1>layemee</h1>
-    </header>
-  );
-}
-
-function Footer() {
-  const footerStyle = {
-    backgroundColor: "#808080",
-    padding: "10px",
-    textAlign: "center",
-  };
-
-  return (
-    <footer style={footerStyle}>
-      <p>Все права защищены &copy; 2023</p>
-    </footer>
-  );
-}
-
 function Home() {
   const [products, setProducts] = useState([]);
 
@@ -45,12 +17,14 @@ function Home() {
   }, []);
 
   const productContainerStyle = {
+    fontStyle: "sans-sefif",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
   };
 
   const productStyle = {
+    fontStyle: "sans-sefif",
     backgroundColor: "#808080",
     width: "200px",
     margin: "10px",
@@ -58,17 +32,18 @@ function Home() {
   };
 
   const productTitleStyle = {
+    fontStyle: "sans-sefif",
     fontWeight: "bold",
   };
 
   const productImageStyle = {
+    fontStyle: "sans-sefif",
     width: "100%",
     height: "auto",
   };
 
   return (
     <div>
-      <Header />
       <div style={productContainerStyle}>
         {products.map((item) => (
           <div key={item.id} style={productStyle}>
@@ -82,7 +57,6 @@ function Home() {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
   );
 }
