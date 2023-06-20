@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header() {
   const headerStyle = {
     fontStyle: "sans-sefif",
-    backgroundColor: "#808080",
+    backgroundColor: "white",
     padding: "20px",
     textAlign: "left",
   };
@@ -12,17 +12,18 @@ function Header() {
   const linkStyle = {
     fontStyle: "sans-sefif",
     marginRight: "20px",
-    color: "white",
+    color: "black",
     textDecoration: "none",
   };
   const homeButtonStyle = {
     fontStyle: "sans-sefif",
-    color: "white",
+    color: "black",
     fontWeight: "bold",
     border: "none",
     marginRight: "10px",
   };
   const pagesStyle = {
+    color: "black",
     fontStyle: "sans-sefif",
     padding: "20px",
     textAlign: "center",
@@ -38,6 +39,9 @@ function Header() {
         </Link>
         <Link to="/state" style={linkStyle}>
           State
+        </Link>
+        <Link to="/cart" style={linkStyle}>
+          Корзина
         </Link>
       </nav>
     </header>

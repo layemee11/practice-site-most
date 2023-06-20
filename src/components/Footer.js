@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   const footerStyle = {
     fontStyle: "sans-sefif",
-    backgroundColor: "#808080",
+    backgroundColor: "white",
     padding: "10px",
     textAlign: "center",
   };
