@@ -3,44 +3,62 @@ import { Link } from "react-router-dom";
 
 function Header() {
   const headerStyle = {
-    fontStyle: "sans-sefif",
-    backgroundColor: "white",
+    fontFamily: "Helvetica, Arial, sans-serif",
+    backgroundColor: "#fff",
     padding: "20px",
-    textAlign: "left",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    borderBottom: "1px solid #ddd",
+  };
+
+  const logoStyle = {
+    fontSize: "24px",
+    fontWeight: "bold",
+    color: "#333",
+    textDecoration: "none",
+  };
+
+  const navStyle = {
+    display: "flex",
+    alignItems: "center",
   };
 
   const linkStyle = {
-    fontStyle: "sans-sefif",
+    fontFamily: "Georgia, Times New Roman, serif",
+    fontSize: "18px",
+    fontWeight: "normal",
     marginRight: "20px",
-    color: "black",
+    color: "#666",
     textDecoration: "none",
+    transition: "color 0.3s ease-in-out",
   };
-  const homeButtonStyle = {
-    fontStyle: "sans-sefif",
-    color: "black",
+
+  const activeLinkStyle = {
+    color: "#FF7F50",
     fontWeight: "bold",
-    border: "none",
-    marginRight: "10px",
   };
-  const pagesStyle = {
-    color: "black",
-    fontStyle: "sans-sefif",
-    padding: "20px",
-    textAlign: "center",
-    display: "flex",
-    justifyContent: "center",
+
+  const homeLinkStyle = {
+    ...linkStyle,
+    fontSize: "20px",
+    color: "#FF7F50",
+    textTransform: "uppercase",
   };
+
   return (
     <header style={headerStyle}>
-      <h1>layemee</h1>
-      <nav style={pagesStyle}>
-        <Link to="/" style={homeButtonStyle}>
+      <Link to="/" style={logoStyle}>
+        layemee
+      </Link>
+      <nav style={navStyle}>
+        <Link to="/" style={homeLinkStyle} activeStyle={activeLinkStyle}>
           Home
         </Link>
-        <Link to="/state" style={linkStyle}>
+        <Link to="/state" style={linkStyle} activeStyle={activeLinkStyle}>
           State
         </Link>
-        <Link to="/cart" style={linkStyle}>
+        <Link to="/cart" style={linkStyle} activeStyle={activeLinkStyle}>
           Корзина
         </Link>
       </nav>

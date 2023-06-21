@@ -9,6 +9,8 @@ import store from "./components/store/store";
 import Cart from "./components/pages/Cart";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProductDetails from "./components/pages/ProductDetails";
+
 function App() {
   return (
     <Provider store={store}>
@@ -19,6 +21,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/state" element={<State />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/products/:productId" element={<ProductDetails />} />
           </Routes>
           <Footer />
           <ToastContainer />

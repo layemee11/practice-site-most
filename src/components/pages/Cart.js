@@ -18,17 +18,21 @@ function Cart() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    fontFamily: "Arial, sans-serif",
+    padding: "20px",
   };
 
   const cartTitleStyle = {
-    fontSize: "24px",
+    fontSize: "28px",
     fontWeight: "bold",
     marginBottom: "20px",
+    color: "#333",
   };
 
   const emptyCartStyle = {
-    fontSize: "18px",
+    fontSize: "20px",
     marginBottom: "20px",
+    color: "#666",
   };
 
   const cartItemStyle = {
@@ -41,11 +45,14 @@ function Cart() {
     width: "25%",
     height: "25%",
     marginRight: "10px",
+    borderRadius: "8px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
   };
 
   const itemTitleStyle = {
     marginRight: "10px",
     fontWeight: "bold",
+    color: "#333",
   };
 
   const removeButtonStyle = {
@@ -56,6 +63,7 @@ function Cart() {
     backgroundColor: "#ff4d4d",
     color: "white",
     cursor: "pointer",
+    fontSize: "14px",
   };
 
   const clearButtonStyle = {
@@ -66,6 +74,7 @@ function Cart() {
     backgroundColor: "#ff4d4d",
     color: "white",
     cursor: "pointer",
+    fontSize: "16px",
   };
 
   const calculateTotal = () => {

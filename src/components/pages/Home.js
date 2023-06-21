@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/productsSlice";
 import { addToCart } from "../store/cartSlice";
@@ -20,42 +21,57 @@ function Home() {
   };
 
   const productCartStyle = {
-    backgroundColor: "#f2f2f2",
-    width: "200px",
-    margin: "10px",
-    border: "2px solid #ccc",
-    borderRadius: "5px",
-    padding: "10px",
+    backgroundColor: "#fff",
+    width: "300px",
+    margin: "20px",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    padding: "20px",
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    transition: "transform 0.3s ease-in-out",
+    textAlign: "center",
+    fontFamily: "Arial, sans-serif",
     position: "relative",
+    overflow: "hidden",
   };
 
   const productTitleStyle = {
     fontWeight: "bold",
-    marginBottom: "5px",
+    fontSize: "20px",
+    marginBottom: "10px",
+    color: "#333",
+    textDecoration: "none",
   };
 
   const productPriceStyle = {
-    marginBottom: "5px",
+    fontSize: "18px",
+    marginBottom: "20px",
+    color: "#666",
   };
 
   const productImageStyle = {
     width: "100%",
     height: "auto",
-    borderRadius: "5px",
+    borderRadius: "8px",
+    marginBottom: "20px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    transition: "transform 0.3s ease-in-out",
   };
 
   const addToCartButtonStyle = {
     backgroundColor: "#FF7F50",
-    color: "white",
+    color: "#fff",
     border: "none",
-    borderRadius: "5px",
-    padding: "5px 10px",
+    borderRadius: "8px",
+    padding: "10px 20px",
     cursor: "pointer",
+    transition: "background-color 0.3s ease-in-out",
+    outline: "none",
     position: "absolute",
-    bottom: "10px",
+    bottom: "20px",
     left: "50%",
     transform: "translateX(-50%)",
+    fontSize: "16px",
   };
 
   const handleAddToCart = (product) => {
@@ -76,7 +92,9 @@ function Home() {
       <div style={productContainerStyle}>
         {products.map((item) => (
           <div key={item.id} style={productCartStyle}>
-            <p style={productTitleStyle}>Товар: {item.title}</p>
+            <Link to={`/products/${item.id}`} style={productTitleStyle}>
+              {item.title}
+            </Link>
             <p style={productPriceStyle}>Цена: {item.price}$</p>
             <img
               src={item.thumbnail}
