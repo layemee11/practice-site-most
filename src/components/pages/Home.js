@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 function Home() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
+  const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -75,6 +76,22 @@ function Home() {
   };
 
   const handleAddToCart = (product) => {
+    if (!isLoggedIn) {
+      toast.error(
+        "Вы должны быть авторизованы для добавления товара в корзину",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: false,
+          progress: undefined,
+        }
+      );
+      return;
+    }
+
     dispatch(addToCart(product));
     toast.success("Товар добавлен в корзину!", {
       position: "top-right",
@@ -104,6 +121,7 @@ function Home() {
             <button
               style={addToCartButtonStyle}
               onClick={() => handleAddToCart(item)}
+              //disabled={!isLoggedIn}
             >
               Добавить в корзину
             </button>
