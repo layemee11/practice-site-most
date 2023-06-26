@@ -82,19 +82,26 @@ function Header() {
           State
         </NavLink>
         {isAuthenticated ? (
-          <NavLink to="/cart" style={linkStyle} activestyle={activeLinkStyle}>
-            Корзина
-          </NavLink>
-        ) : null}
-        {isAuthenticated ? (
-          <button
-            onClick={handleLogout}
-            style={logoutButtonStyle}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#e65c00")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#FF7F50")}
-          >
-            Выйти
-          </button>
+          <>
+            <NavLink to="/cart" style={linkStyle} activestyle={activeLinkStyle}>
+              Корзина
+            </NavLink>
+            <NavLink
+              to="/profile"
+              style={linkStyle}
+              activestyle={activeLinkStyle}
+            >
+              Профиль
+            </NavLink>
+            <button
+              onClick={handleLogout}
+              style={logoutButtonStyle}
+              onMouseOver={(e) => (e.target.style.backgroundColor = "#e65c00")}
+              onMouseOut={(e) => (e.target.style.backgroundColor = "#FF7F50")}
+            >
+              Выйти
+            </button>
+          </>
         ) : (
           <NavLink to="/login" style={linkStyle} activestyle={activeLinkStyle}>
             Войти

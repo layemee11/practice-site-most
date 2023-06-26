@@ -14,16 +14,18 @@ function State() {
   const stateStyle = {
     fontStyle: "sans-sefif",
     fontSize: "80px",
-    padding: "40px",
     textAlign: "center",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    minHeight: "80vh",
+    background: "linear-gradient(90deg, #bf7a38, #ffffff, #bf7a38)",
   };
 
   const buttonStyle = {
+    maxWidth: "600px",
+    width: "100%",
     fontStyle: "sans-sefif",
     fontSize: "80px",
-    padding: "10px 20px",
     borderRadius: "5px",
     border: "none",
     cursor: "pointer",

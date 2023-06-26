@@ -81,7 +81,14 @@ function ProductDetails() {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        minHeight: "80vh",
+        background: "linear-gradient(90deg, #bf7a38, #ffffff, #bf7a38)",
+      }}
+    >
       <div style={styles.container}>
         <img
           src={productDetails.thumbnail}

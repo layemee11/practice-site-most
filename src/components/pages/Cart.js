@@ -15,11 +15,14 @@ function Cart() {
   };
 
   const cartContainerStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    fontFamily: "Arial, sans-serif",
+    fontFamily: "Helvetica, Arial, sans-serif",
     padding: "20px",
+    textAlign: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    minHeight: "80vh",
+    background: "linear-gradient(90deg, #bf7a38, #ffffff, #bf7a38)",
   };
 
   const cartTitleStyle = {

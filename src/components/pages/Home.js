@@ -19,6 +19,7 @@ function Home() {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
+    background: "linear-gradient(90deg, #bf7a38, #ffffff, #bf7a38)",
   };
 
   const productCartStyle = {
@@ -121,7 +122,7 @@ function Home() {
             <button
               style={addToCartButtonStyle}
               onClick={() => handleAddToCart(item)}
-              //disabled={!isLoggedIn}
+              //disabled={!isLoggedIn}}
             >
               Добавить в корзину
             </button>
