@@ -83,6 +83,13 @@ function Header() {
         </NavLink>
         {isAuthenticated ? (
           <>
+            <NavLink
+              to="/posts"
+              style={linkStyle}
+              activestyle={activeLinkStyle}
+            >
+              Посты
+            </NavLink>
             <NavLink to="/cart" style={linkStyle} activestyle={activeLinkStyle}>
               Корзина
             </NavLink>
