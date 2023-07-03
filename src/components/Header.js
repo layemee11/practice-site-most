@@ -81,6 +81,9 @@ function Header() {
         <NavLink to="/state" style={linkStyle} activestyle={activeLinkStyle}>
           State
         </NavLink>
+        <NavLink to="/users" style={linkStyle} activestyle={activeLinkStyle}>
+          Пользователи
+        </NavLink>
         {isAuthenticated ? (
           <>
             <NavLink
