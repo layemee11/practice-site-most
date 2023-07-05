@@ -2,20 +2,37 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers, fetchUserPosts } from "../store/usersSlice";
+//import { addComment } from "../store/commentsSlice";
 
 function UserDetails() {
   const { userId } = useParams();
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.users);
   const posts = useSelector((state) => state.users.posts);
+  const comments = useSelector((state) => state.users.comments);
   const loading = useSelector((state) => state.users.loading);
   const error = useSelector((state) => state.users.error);
   const user = users.find((user) => user.id === +userId);
+
+  // const [commentText, setCommentText] = useState("");
 
   useEffect(() => {
     dispatch(fetchUsers());
     dispatch(fetchUserPosts(userId));
   }, [dispatch, userId]);
+
+  // const handleCommentSubmit = (postId) => {
+  //   if (commentText.trim() === "") {
+  //     return;
+  //   }
+  //   dispatch(
+  //     addComment({
+  //       postId: postId,
+  //       body: commentText,
+  //     })
+  //   );
+  //   setCommentText("");
+  // };
 
   if (loading) {
     return <p>Loading user details...</p>;
@@ -103,6 +120,31 @@ function UserDetails() {
     color: "#666",
   };
 
+  const commentContainerStyle = {
+    display: "flex",
+    alignItems: "center",
+    marginTop: "10px",
+  };
+
+  const commentAvatarStyle = {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    marginRight: "10px",
+  };
+
+  const commentUsernameStyle = {
+    fontSize: "14px",
+    fontWeight: "bold",
+    color: "#333",
+  };
+
+  const commentBodyStyle = {
+    fontSize: "14px",
+    color: "#666",
+  };
+
   return (
     <div style={profileContainerStyle}>
       <div style={contentContainerStyle}>
@@ -137,6 +179,38 @@ function UserDetails() {
               <div key={post.id} style={postContainerStyle}>
                 <h5 style={postTitleStyle}>{post.title}</h5>
                 <p style={postBodyStyle}>{post.body}</p>
+                {comments
+                  .filter((comment) => comment.postId === post.id)
+                  .map((comment) => (
+                    <div key={comment.id} style={commentContainerStyle}>
+                      {comment.user && comment.user.image && (
+                        <img
+                          src={comment.user.image}
+                          alt="User"
+                          style={commentAvatarStyle}
+                        />
+                      )}
+                      <div>
+                        {comment.user && (
+                          <p style={commentUsernameStyle}>
+                            {comment.user.username}
+                          </p>
+                        )}
+                        <p style={commentBodyStyle}>{comment.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                {/* <div style={commentContainerStyle}>
+                  <input
+                    type="text"
+                    value={commentText}
+                    onChange={(e) => setCommentText(e.target.value)}
+                    placeholder="Add a comment..."
+                  />
+                  <button onClick={() => handleCommentSubmit(post.id)}>
+                    Submit
+                  </button>
+                </div> */}
               </div>
             ))}
           </div>

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../store/postsSlice";
+import { addPostAsync } from "../store/postsSlice";
 import { Navigate } from "react-router-dom";
-
-// import { clearPosts } from "../store/postsSlice";
 
 function Posts() {
   const dispatch = useDispatch();
@@ -11,21 +9,21 @@ function Posts() {
   const [content, setContent] = useState("");
   const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
   const username = useSelector((state) => state.auth.user?.username);
-  const posts = useSelector((state) => state.posts);
+  //const posts = useSelector((state) => state.posts);
+  const userId = useSelector((state) => state.auth.user?.id);
 
   const handleAddPost = () => {
     const post = {
       title,
       content,
       username,
+      userId,
     };
-    dispatch(addPost(post));
+    dispatch(addPostAsync(post));
     setTitle("");
     setContent("");
   };
-  //   const handleClearPosts = () => {
-  //     dispatch(clearPosts());
-  //   };
+
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
   }
@@ -144,7 +142,7 @@ function Posts() {
         </button>
       </div>
 
-      <h2 style={style.sectionTitle}>Список постов</h2>
+      {/* <h2 style={style.sectionTitle}>Список постов</h2>
       {posts.length > 0 ? (
         <ul style={style.postList}>
           {posts.map((post) => (
@@ -157,8 +155,7 @@ function Posts() {
         </ul>
       ) : (
         <p>Посты отсутствуют.</p>
-      )}
-      {/* <button onClick={handleClearPosts}>Очистить посты</button> */}
+      )} */}
     </div>
   );
 }
