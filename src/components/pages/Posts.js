@@ -9,7 +9,6 @@ function Posts() {
   const [content, setContent] = useState("");
   const isLoggedIn = useSelector((state) => state.auth.isAuthenticated);
   const username = useSelector((state) => state.auth.user?.username);
-  //const posts = useSelector((state) => state.posts);
   const userId = useSelector((state) => state.auth.user?.id);
 
   const handleAddPost = () => {
@@ -27,6 +26,7 @@ function Posts() {
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
   }
+
   const style = {
     postsContainer: {
       fontFamily: "Helvetica, Arial, sans-serif",
@@ -36,6 +36,8 @@ function Posts() {
       alignItems: "center",
       minHeight: "80vh",
       background: "linear-gradient(90deg, #bf7a38, #ffffff, #bf7a38)",
+      display: "flex",
+      flexWrap: "wrap",
     },
     sectionTitle: {
       fontSize: "24px",
@@ -47,8 +49,10 @@ function Posts() {
       display: "flex",
       flexDirection: "column",
       marginBottom: "20px",
-      width: "550px",
+      width: "100%",
+      maxWidth: "550px",
       margin: "0 auto",
+      flexWrap: "wrap",
     },
     postInput: {
       padding: "10px",
@@ -56,6 +60,9 @@ function Posts() {
       border: "1px solid #ccc",
       borderRadius: "4px",
       fontSize: "16px",
+      width: "100%",
+      display: "flex",
+      flexWrap: "wrap",
     },
     addButton: {
       padding: "10px 20px",
@@ -68,6 +75,8 @@ function Posts() {
       fontSize: "18px",
       fontWeight: "bold",
       textTransform: "uppercase",
+      width: "150px",
+      margin: "0 auto",
     },
     addButtonHover: {
       backgroundColor: "#d81b60",
@@ -75,7 +84,9 @@ function Posts() {
     postList: {
       listStyle: "none",
       padding: "0",
-      margin: "0",
+      width: "100%",
+      maxWidth: "500px",
+      margin: "0 auto",
     },
     postItem: {
       marginBottom: "20px",
@@ -84,24 +95,18 @@ function Posts() {
       borderRadius: "4px",
       background: "linear-gradient(to bottom, #ffffff, #f2f2f2)",
       boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.1)",
-      width: "500px",
-      margin: "0 auto",
     },
     postTitle: {
       fontSize: "20px",
       marginBottom: "10px",
       color: "#333",
       fontWeight: "bold",
-      width: "300px",
-      margin: "0 auto",
       overflowWrap: "break-word",
     },
     postContent: {
       fontSize: "16px",
       marginBottom: "10px",
       color: "#666",
-      width: "300px",
-      margin: "0 auto",
       overflowWrap: "break-word",
     },
     postAuthor: {

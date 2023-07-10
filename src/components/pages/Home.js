@@ -107,22 +107,24 @@ function Home() {
 
   return (
     <div>
+      <h1 style={{ textAlign: "center", marginTop: "40px" }}>
+        Добро пожаловать в наш магазин!
+      </h1>
       <div style={productContainerStyle}>
-        {products.map((item) => (
-          <div key={item.id} style={productCartStyle}>
-            <Link to={`/products/${item.id}`} style={productTitleStyle}>
-              {item.title}
-            </Link>
-            <p style={productPriceStyle}>Цена: {item.price}$</p>
+        {products.map((product) => (
+          <div key={product.id} style={productCartStyle}>
             <img
-              src={item.thumbnail}
-              alt={item.title}
+              src={product.thumbnail}
+              alt={product.title}
               style={productImageStyle}
             />
+            <Link to={`/product/${product.id}`} style={productTitleStyle}>
+              {product.title}
+            </Link>
+            <p style={productPriceStyle}>{product.price} $</p>
             <button
+              onClick={() => handleAddToCart(product)}
               style={addToCartButtonStyle}
-              onClick={() => handleAddToCart(item)}
-              //disabled={!isLoggedIn}}
             >
               Добавить в корзину
             </button>

@@ -33,7 +33,7 @@ function Users() {
     textAlign: "left",
     backgroundColor: "#FFA900",
     color: "#ffffff",
-    position: "sticky",
+    //position: "sticky",
     top: 0,
     zIndex: 1,
   };

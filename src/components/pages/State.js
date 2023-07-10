@@ -12,11 +12,12 @@ function State() {
   };
 
   const stateStyle = {
-    fontStyle: "sans-sefif",
+    fontFamily: "sans-serif",
     fontSize: "80px",
     textAlign: "center",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
     minHeight: "80vh",
     background: "linear-gradient(90deg, #bf7a38, #ffffff, #bf7a38)",
   };
@@ -24,7 +25,7 @@ function State() {
   const buttonStyle = {
     maxWidth: "600px",
     width: "100%",
-    fontStyle: "sans-sefif",
+    fontFamily: "sans-serif",
     fontSize: "80px",
     borderRadius: "5px",
     border: "none",
@@ -32,13 +33,19 @@ function State() {
     backgroundColor: "white",
   };
 
+  const responsiveButtonStyle = {
+    ...buttonStyle,
+    fontSize: "40px",
+    padding: "20px",
+  };
+
   return (
     <div style={stateStyle}>
-      <button onClick={decrementCount} style={buttonStyle}>
+      <button onClick={decrementCount} style={responsiveButtonStyle}>
         -
       </button>
       <p>{count}</p>
-      <button onClick={incrementCount} style={buttonStyle}>
+      <button onClick={incrementCount} style={responsiveButtonStyle}>
         +
       </button>
     </div>
